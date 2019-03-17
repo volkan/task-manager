@@ -3,8 +3,6 @@ services:
   prepare_spa:
     build:
       context: ./task_spa
-    ports: 
-      - "5000:5000"
     volumes:
       - ./task_spa:/app
     command: ./bin/run.sh
