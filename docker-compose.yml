@@ -14,7 +14,7 @@ services:
       args:
         TIMEZONE: ${TIMEZONE}
     volumes:
-      - ${SYMFONY_APP_PATH}:/var/www/symfony
+      - ./task_api:/var/www/symfony
       - ./task_api/var/logs/symfony:/var/www/symfony/var/logs
       - ./nginx/run.sh:/nginx_run.sh
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -22,7 +22,7 @@ services:
       - ./nginx/symfony.conf:/etc/nginx/sites-enabled/symfony
   prepare_php:
     volumes:
-      - ${SYMFONY_APP_PATH}:/var/www/symfony      
+      - ./task_api:/var/www/symfony
     build:
       context: ./task_api    
     command: bin/prod.sh
