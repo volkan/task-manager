@@ -32,7 +32,16 @@ http://127.0.0.1/
 cd task_api
 docker-compose up --build
 ```
+OR CLI
 
+Installation:
+```bash
+composer install
+```
+Running tests
+```bash
+./bin/phpunit
+```
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=volkan_task-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=volkan_task-manager)
 ######  This Test Only for PHP API
