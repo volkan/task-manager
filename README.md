@@ -14,12 +14,12 @@ docker-compose up --build
 
 
 #### API Swagger URL
-```
+```bash
 http://127.0.0.1/api/doc
 ```
 
 #### SPA URL
-```
+```bash
 http://127.0.0.1/
 ```
 
