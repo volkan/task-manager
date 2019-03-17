@@ -4,10 +4,11 @@ ARG TIMEZONE
 
 RUN apt-get update
 RUN apt-get install --no-install-recommends -y git-core unzip
-RUN pecl install xdebug-2.5.0 && docker-php-ext-enable xdebug
+#RUN pecl install xdebug-2.5.0 && docker-php-ext-enable xdebug
 RUN apt-get install --no-install-recommends -y libzip-dev zip
 RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install opcache
 
 # Install Composer
 COPY --from=composer:1.8 /usr/bin/composer /usr/local/bin/composer
