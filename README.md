@@ -13,12 +13,14 @@ docker-compose up --build
 ##### You need wait at least 5 minutes
 
 
-#### API Swagger URL
+#### API Swagger URL
+
 ```bash
 http://127.0.0.1/api/doc
 ```
 
-#### SPA URL
+#### SPA URL
+
 ```bash
 http://127.0.0.1/
 ```
@@ -32,4 +34,3 @@ docker-compose up --build
 ```
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=volkan_task-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=volkan_task-manager)
-
