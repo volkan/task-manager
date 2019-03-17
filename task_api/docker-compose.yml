@@ -1,0 +1,7 @@
+version: '3'
+services:
+    unittest:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev 
+        command: /app/bin/unittest.sh

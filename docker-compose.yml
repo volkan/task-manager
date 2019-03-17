@@ -1,0 +1,41 @@
+version: '2'
+services:
+  prepare_spa:
+    build:
+      context: ./task_spa
+    ports: 
+      - "5000:5000"
+    volumes:
+      - ./task_spa:/app
+    command: ./bin/run.sh
+  php:
+    build:
+      context: ./task_api
+      args:
+        TIMEZONE: ${TIMEZONE}
+    volumes:
+      - ${SYMFONY_APP_PATH}:/var/www/symfony
+      - ./task_api/var/logs/symfony:/var/www/symfony/var/logs
+      - ./nginx/run.sh:/nginx_run.sh
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/symfony.conf:/etc/nginx/sites-available/symfony.conf
+      - ./nginx/symfony.conf:/etc/nginx/sites-enabled/symfony
+  prepare_php:
+    volumes:
+      - ${SYMFONY_APP_PATH}:/var/www/symfony      
+    build:
+      context: ./task_api    
+    command: bin/prod.sh
+  nginx:
+    depends_on:
+      - prepare_php
+    build: nginx
+    ports:
+        - 80:80
+        - 443:443
+    volumes_from:
+        - php
+        - prepare_spa
+    volumes:
+        - ./nginx/var/logs/nginx/:/var/log/nginx
+    command: bash /nginx_run.sh
