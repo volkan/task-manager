@@ -65,7 +65,7 @@ class TaskController extends AbstractFOSRestController
      *     @SWG\Schema(ref=@Model(type=Task::class))
      * )
      * @SWG\Parameter(
-     *     name="body",
+     *     name="request",
      *     in="body",
      *     @SWG\Schema(ref=@Model(type=Task::class, groups={"upsert_dto"}))
      * )
@@ -98,7 +98,7 @@ class TaskController extends AbstractFOSRestController
      *     )
      * )
      * @SWG\Parameter(
-     *     name="body",
+     *     name="request",
      *     in="body",
      *     @SWG\Schema(ref=@Model(type=Task::class, groups={"upsert_dto"}))
      * )
